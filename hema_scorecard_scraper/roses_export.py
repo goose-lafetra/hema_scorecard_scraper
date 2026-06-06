@@ -6,7 +6,6 @@ import os
 from .match_data import MatchData, FighterData
 
 # Definitions for output filenames
-FILENAME_MATCH_TIME = "match_time.txt"
 FILENAME_MATCH_DOUBLES = "match_doubles.txt"
 # Note: Fighter filenames will be prefixed by "fighter" + "_" + label + "_"
 FILENAME_FIGHTER_PREFIX = "fighter"
@@ -39,7 +38,6 @@ def write_fighter_data(fighter: FighterData, path=""):
 def write_match_data(match: MatchData, path=""):
 
     # Write general match data
-    write_data_file(path, FILENAME_MATCH_TIME, match.match_time)
     write_data_file(path, FILENAME_MATCH_DOUBLES, str(match.doubles_count))
 
     # Write fighter data

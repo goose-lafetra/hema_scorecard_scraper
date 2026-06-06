@@ -50,7 +50,6 @@ class FighterData:
 class MatchData:
     left_fighter = FighterData("left")
     right_fighter = FighterData("right")
-    match_time = "00:00"
     doubles_count = 0
 
     # Regex patterns for above data
@@ -58,7 +57,7 @@ class MatchData:
     REGEX_DOUBLES = "<span >[\\W\\w]*?([0-9]) Double[\\W\\w]*?<\\/span>"
 
     def __str__(self):
-        return "Match Time: [" + self.match_time + "] Doubles: [" + str(self.doubles_count) + "] Fighters: [" + str(self.left_fighter) + " / " + str(self.right_fighter) + "]"
+        return "Doubles: [" + str(self.doubles_count) + "] Fighters: [" + str(self.left_fighter) + " / " + str(self.right_fighter) + "]"
 
     def parse_data(self, html: str):
 
