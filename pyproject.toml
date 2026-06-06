@@ -1,0 +1,28 @@
+[build-system]
+requires = [
+    "hatchling >= 1.26"
+    ]
+build-backend = "hatchling.build"
+
+[project]
+name = "hema_scorecard_scraper"
+version = "0.1.1"
+authors = [
+  { name="Goose La Fetra", email="gooselafetra@protonmail.com" },
+]
+description = "A simple web scraping program to get data from HEMA Scorecard to text files for OBS to consume."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "CC-BY-SA-4.0"
+license-files = ["LICENSE"]
+dependencies = [
+  "requests",
+  "prompt_toolkit"
+]
+
+[project.urls]
+Homepage = "https://github.com/goose-lafetra/hema_scorecard_scraper"
