@@ -1,6 +1,6 @@
 # HEMA Scorecard Scraper
 
-A simple web scraping program to get data from HEMA Scorecard to text files for OBS to consume. Created for IFG's Tournament of the Roses 2026. It is not affiliated with HEMA Scorecard in any way.
+A simple web scraping program to get data from HEMA Scorecard to text files for OBS to consume. Created for IFG's Tournament of the Roses 2026. It is not affiliated with HEMA Scorecard in any way. Made without the use of any AI tools.
 
 ### Legal Notice
 
@@ -55,3 +55,31 @@ Exits the program entirely.
 ### \<url\>
 
 Sets the scraper to track a specific match. The indended use case is for you to copy the url of the match from the HEMA Scorecard site, and paste it into the console. (You do not need to type `<url>`, just enter the url itsself.)
+
+## Output Information
+
+### Left/Right/Match Prefixes
+
+All fighter data files are prependded with either `fighter_left` or `fighter_right` depending on if they appear on the left or right side of the HEMA Scorecard display. Match data files are prepended with the `match` prefix.
+
+### Fighter Name
+
+The name of the fighter as it appears on HEMA scorecard.
+
+### Fighter School
+
+The name of the fighter's school as it appears on HEMA scorecard.
+
+### Fighter Score
+
+The current score of the fighter.
+
+### Match Doubles
+
+The number of doubles present in the match.
+
+## Why doesn't this scraper capture match time?
+
+Because of how HEMA Scorecard is coded, match time is a little more difficult to grab. Also, for the Tournament of Roses ruleset it's not particularly important. (Matches very rarely come down to time) Because of this, the Roses streaming team didn't need match time. If it's imporant for your event, feel free to fork this repository and make a pull request when you have it working!
+
+
