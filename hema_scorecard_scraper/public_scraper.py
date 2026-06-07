@@ -7,6 +7,9 @@ import requests
 from .match_data import MatchData
 
 URL_REGEX = "^https:\\/\\/hemascorecard\\.com\\/scoreMatch\\.php\\?e=([0-9]+)&t=([0-9]+)&m=([0-9]+)#?$"
+COOKIE_NAME = "PHPSESSID"
+COOKIE_DOMAIN = "hemascorecard.com"
+COOKIE_REGEX = "^[a-z0-9]{20,}$"
 
 class URLError(Exception):
 
@@ -15,6 +18,8 @@ class URLError(Exception):
         super().__init__(self.message)
 
 class PublicScraper:
+
+    session = requests.Session()
     
     match_data = MatchData()
 
@@ -28,7 +33,7 @@ class PublicScraper:
         self.refresh_data()
 
     def refresh_data(self):
-        response = requests.get(self.get_url())
+        response = self.session.get(self.get_url())
 
         response.raise_for_status()
         self.match_data.parse_data(response.text)

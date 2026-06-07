@@ -6,7 +6,7 @@ from prompt_toolkit.patch_stdout import patch_stdout
 import asyncio
 import re
 
-from .public_scraper import PublicScraper, URL_REGEX
+from .public_scraper import PublicScraper, URL_REGEX, COOKIE_NAME, COOKIE_REGEX, COOKIE_DOMAIN
 from .roses_export import write_match_data
 
 SCORECARD_REFRESH_TIME = 0.5 # Keep this above 0.2 to be nice to HEMAScorecard
@@ -92,6 +92,9 @@ class ScraperConsole:
         if re.fullmatch(URL_REGEX, command) != None:
             await self.handle_command_url(command)
 
+        elif re.fullmatch(COOKIE_REGEX, command) != None:
+            await self.handle_command_cookie(command)
+
         elif command == "help":
             self.handle_command_help()
 
@@ -171,9 +174,16 @@ class ScraperConsole:
         else:
             print("Updates already stopped!")
 
+    async def handle_command_cookie(self, cookie: str):
+        async with self.scraper_lock:
+            self.scraper.session.cookies.set(name=COOKIE_NAME, value=cookie, domain=COOKIE_DOMAIN, path="/")
+
+        print("Cookie successfully updated!")
+
     # Prints out a help message
     def handle_command_help(self):
         print("List of commands:")
+        print("<cookie> - enter your HEMA Scorecard cookie to access matches you can only see logged in.")
         print("help - displays this list of commands")
         print("next - switch to track the next match")
         print("prev - switch to tracking the previous match")

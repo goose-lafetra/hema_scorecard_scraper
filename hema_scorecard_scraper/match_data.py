@@ -18,7 +18,7 @@ class FighterData:
     # Regex patterns for above data
     REGEX_NAME = "<span style='font-size:20px;'> (.+?)<\\/span>"
     REGEX_SCHOOL_NAME = "<span style='font-size:15px;'>\\s+(.+?)\\s+<\\/span>"
-    REGEX_CURRENT_SCORE = "<span style='font-size:60px;'>\\s+([0-9]+?)\\s+<\\/span>"
+    REGEX_CURRENT_SCORE = "<span style='font-size:60px;'>\\s+([0-9/]+?)\\s+<\\/span>"
 
     def __init__(self, label: str):
         self.label = label
@@ -31,18 +31,21 @@ class FighterData:
         match = re.search(self.REGEX_NAME, html)
         if match == None:
             print("Could not find match for " + self.label + " fighter's name in html!")
+            self.name = "???"
         else:
             self.name = match.group(1)
 
         match = re.search(self.REGEX_SCHOOL_NAME, html)
         if match == None:
             print("search not find match for " + self.label + " fighter's school name in html!")
+            self.school_name = "???"
         else:
             self.school_name = match.group(1)
 
         match = re.search(self.REGEX_CURRENT_SCORE, html)
         if match == None:
             print("Could not find match for " + self.label + " fighter's current score in html!")
+            self.current_score = "/" # Slash is the 
         else:
             self.current_score = match.group(1)
 

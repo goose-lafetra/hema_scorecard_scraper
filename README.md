@@ -28,6 +28,10 @@ While the scraper is running, you should have a console in the terminal that you
 
 ## Commands
 
+### \<cookie\>
+
+Similar to the URL command, you can enter your `PHPSESSID` cookie that HEMA scorecard gives you. This will let the scraper see the same matches you see. This should only be nessisary if you're running a mock bout for an event and haven't published the matches yet. This mode is kinda janky since hema scorecard displays diffrent information to organizers/staff than to your random user. YMMV
+
 ### help
 
 Displays this list of commands.
