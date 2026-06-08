@@ -18,7 +18,7 @@ class FighterData:
     # Regex patterns for above data
     REGEX_NAME = "<span style='font-size:20px;'> (.+?)<\\/span>"
     REGEX_SCHOOL_NAME = "<span style='font-size:15px;'>\\s+(.+?)\\s+<\\/span>"
-    REGEX_CURRENT_SCORE = "<span style='font-size:60px;'>\\s+([0-9/]+?)\\s+<\\/span>"
+    REGEX_CURRENT_SCORE = "<span style='font-size:60px;'>\\s+([0-9/\\-]+)\\s+<\\/span>"
 
     def __init__(self, label: str):
         self.label = label
