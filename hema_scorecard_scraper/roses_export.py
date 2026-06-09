@@ -13,6 +13,8 @@ FILENAME_FIGHTER_NAME = "name.txt"
 FILENAME_FIGHTER_SCHOOLNAME = "school.txt"
 FILENAME_FIGHTER_SCORE = "score.txt"
 
+ROSES_SLASH_SCORE_DISPLAY = " "
+
 '''
 Writes a single data file.
 '''
@@ -31,7 +33,11 @@ def write_fighter_data(fighter: FighterData, path=""):
 
     write_data_file(path, file_prefix + FILENAME_FIGHTER_NAME, fighter.name)
     write_data_file(path, file_prefix + FILENAME_FIGHTER_SCHOOLNAME, fighter.school_name)
-    write_data_file(path, file_prefix + FILENAME_FIGHTER_SCORE, str(fighter.current_score))
+
+    if fighter.current_score == "/":
+        write_data_file(path, file_prefix + FILENAME_FIGHTER_SCORE, ROSES_SLASH_SCORE_DISPLAY)
+    else:
+        write_data_file(path, file_prefix + FILENAME_FIGHTER_SCORE, str(fighter.current_score))
 
 
 
